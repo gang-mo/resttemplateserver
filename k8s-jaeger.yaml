@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: resttemplateserver
-          image: yklee2002/resttemplateserver:latest
+          image: gangmo/resttemplateserver:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
