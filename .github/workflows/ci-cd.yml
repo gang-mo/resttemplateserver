@@ -1,14 +1,14 @@
 name: CI/CD Pipeline
 
-on: 
-  push: 
+on:  
+  push:
     branches:
       - main
 
 env:
   HARBOR_REGISTRY: 210.90.24.172:8080
   HARBOR_PROJECT: restproject
-  STUDENT_ID: leeyoungkon
+  STUDENT_ID: kevin06
   IMAGE_NAME: resttemplateserver
 
 jobs:
@@ -31,13 +31,15 @@ jobs:
           cache: maven
 
 
-      - name: Build with Maven
-        run: ./mvnw clean package -DskipTests
+      - name: Build with Maven Wrapper
+        shell: cmd
+        run: mvnw.cmd clean package -DskipTests
 
-      - name: Generate image tag
+      - name: Set image tag
         id: meta
-        run: echo "tag=${{ github.sha }}" >> $GITHUB_OUTPUT
-
+        shell: cmd
+        run: echo tag=%GITHUB_SHA%>> %GITHUB_OUTPUT%
+        
       - name: Log in to Harbor
         uses: docker/login-action@v3
         with:
