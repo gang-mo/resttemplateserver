@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: resttemplateserver
-          image: 210.90.24.172:8080/restproject/leeyoungkon/resttemplateserver:89116ccb1a0dc38720068cc4c7b28ea15f5ccab5
+          image: 210.90.24.172:8080/restproject/kevin06/resttemplateserver:89116ccb1a0dc38720068cc4c7b28ea15f5ccab5
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -40,5 +40,5 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
-      nodePort: 30102
+      nodePort: 30112
 
